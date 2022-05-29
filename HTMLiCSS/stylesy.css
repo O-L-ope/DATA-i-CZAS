@@ -1,0 +1,9 @@
+body{
+    background-color: brown;
+    text-align: center;
+    margin-top: 20em;
+    text-decoration: solid;
+}
+.aktualnyczas, .Time, .wynik{
+    border-style: solid black  2px;
+}

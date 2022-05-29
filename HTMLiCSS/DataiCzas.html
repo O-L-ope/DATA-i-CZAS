@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./stylesy.css" rel="stylesheet" type="text/css">
+    <title>Data i czas</title>
+</head>
+<body>
+        <div id="aktualnyczas"></div>  
+        <p>
+            Podaj datę <input type="date" id="Time" name="date">
+        </p>
+        
+
+
+        <button onclick="Podaj()">Podaj</button>
+        <div id="wynik"></div>
+        
+        <!-- <div id="aktualnyczas"></div>         -->
+        
+        <script>
+            function clock() {
+            let now = new Date();
+            //document.getElementById("aktualnyczas").innerHTML = "Aktualny czas" + new Date();//
+            document.getElementById("aktualnyczas").innerHTML = "Aktualny czas w UTC: " + now.toISOString().slice(0,19).replace("T", " ");
+        }
+
+            window.setInterval(clock, 1000);
+            
+            const dni = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela']
+                function Podaj(){
+            var data1 = document.getElementById("Time").valueAsDate;
+            var data2 = new Date();
+            var today = document.getElementById("Time").valueAsDate;
+            var weekday = dni[today.getDay()];
+            var Roznica = data2.getTime() - data1.getTime();
+            var RoznicaDni = Roznica / (1000 * 3600 * 24);
+            var RoznicaCzasu = Roznica / (1000 * 3600);
+            document.getElementById("wynik").innerHTML = " Dni " + Math.floor(RoznicaDni) + " Godziny " + Math.floor(RoznicaCzasu) + " Dzień tygodnia: " + weekday;
+            //document.getElementById("aktualnyczas").innerHTML = "Aktualny czas"//
+          }
+          
+        </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
